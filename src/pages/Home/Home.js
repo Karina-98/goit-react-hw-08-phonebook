@@ -16,8 +16,8 @@ const styles = {
 
 export default function Home() {
   return (
-    <HomeDiv style={styles.container}>
-      <TextH1 style={styles.title}>
+    <HomeDiv >
+      <TextH1 >
         Welcome to AdressBook!
         </TextH1>
         <Text>
