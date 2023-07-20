@@ -48,7 +48,7 @@ const handelFulfilledLogOut = state => {
 const handelFulfilledRefresh = (state, action) => {
   state.user = action.payload;
   state.isLoggedIn = true;
-  state.isRefreshing = false;
+  state.isRefreshing = true;
 };
 const handelRejectedRefresh = state => {
   state.isRefreshing = false;

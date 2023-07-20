@@ -2,6 +2,15 @@ import { styled } from "styled-components";
 
 export const Form = styled.form`
  width: 320px;
+ 
+ justify-content: center;
+
+     margin: 60px auto 35px;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+   
 `
 export const Label = styled.label`
  display: flex;

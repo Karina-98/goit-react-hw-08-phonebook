@@ -1,11 +1,16 @@
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operations';
 
+import { Input, Button, InputRightElement, InputGroup } from '@chakra-ui/react';
 import { Form, Label } from './RegisterForm.styled';
-
+import React from 'react';
+import { CheckIcon, ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+
+  const [show, setShow] = React.useState(false);
+  const handleClick = () => setShow(!show);
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -21,20 +26,34 @@ export const RegisterForm = () => {
   };
 
   return (
-    <Form  onSubmit={handleSubmit} autoComplete="off">
-      <Label >
+    <Form onSubmit={handleSubmit} autoComplete="off">
+      <Label>
         Username
-        <input type="text" name="name" />
+        <Input spacing={3} size="lg" type="text" name="name" />
       </Label>
-      <Label >
+      <Label>
         Email
-        <input type="email" name="email" />
-      </Label>
-      <Label >
+        <Input spacing={3} size="lg" type="email" name="email" />
+          </Label>
+
+          <Label>
         Password
-        <input type="password" name="password" />
-      </Label>
-      <button type="submit">Register</button>
+          <InputGroup size='md'>
+     
+        <Input
+          spacing={3}
+          size="lg"
+          type={show ? 'text' : 'password'}
+          name="password"
+        />
+      <InputRightElement width='4.5rem'>
+        <Button h='1.5rem' size='sm' onClick={handleClick}>
+          {show ? <ViewIcon/> : <ViewOffIcon/>}
+        </Button>
+      </InputRightElement>
+    </InputGroup>
+</Label>
+      <Button rightIcon={<CheckIcon />} size='lg' colorScheme='green' type="submit">Register</Button>
     </Form>
   );
 };

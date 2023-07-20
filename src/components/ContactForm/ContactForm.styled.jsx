@@ -45,3 +45,7 @@ padding: 10px 20px;
 
 &:hover {
   background-color: #45a049;}`
+
+  export const Label = styled.label`
+margin-bottom: 30px;
+`

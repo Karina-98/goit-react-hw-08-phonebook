@@ -2,17 +2,18 @@ import { styled } from "styled-components";
 
 export const Text = styled.p`
   font-size: 20px;
-  font-weight: 600;
+    font-weight: 600;
+}
 `;
 
 export const TextH1 = styled.h1`
-  fontWeight: 500,
-  fontSize: 48,
-  text-aline: center;`;
+  font-size: 2em;
+    margin-block-end: 0.67em;
+    margin-block-start: 0.67em;`
 
 
 export const HomeDiv = styled.div`
-   min-height: 'calc(100vh - 50px)',
-    display: flex,
-    alignItems: 'center',
-    justifyContent: 'center'`
+        max-width: 450px;
+    margin: 100px auto;
+    padding: 0px 16px;
+    `

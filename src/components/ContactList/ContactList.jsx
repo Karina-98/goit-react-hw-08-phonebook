@@ -1,10 +1,12 @@
 import {  useSelector, useDispatch } from "react-redux";
-import { ButtonDelete, ContactItem, List } from "./ContactList.styled";
+import {  Span, } from "./ContactList.styled";
 import { getContacts, getFilter } from "redux/contacts/selectors";
 
 
 import { Loader } from "components/Loader/Loader";
 import { deleteContacts } from "redux/contacts/operations";
+import {  Button, Icon, List,  ListItem } from "@chakra-ui/react";
+import { PhoneIcon } from "@chakra-ui/icons";
 
 
 
@@ -24,12 +26,13 @@ const filtredContacts = contacts?.filter(contact =>
   
   return (<>
   {isLoading && <Loader></Loader>}
-    <List>
+    <List spacing={3}>
       {filtredContacts.map(({id, name, phone}) => (
-        <ContactItem key={id}>
-          {name}: {phone}
-          <ButtonDelete type="button" onClick={()=>{dispatch(deleteContacts(id))}}>Delete</ButtonDelete>
-        </ContactItem>
+        <ListItem key={id}>
+          <Icon as={PhoneIcon} boxSize={4} />
+          <Span>{name}: {phone}</Span>
+          <Button colorScheme='red' type="button" onClick={()=>{dispatch(deleteContacts(id))}}>Delete</Button>
+        </ListItem>
       ))}
     </List>
     {error && <p>{error}</p>}

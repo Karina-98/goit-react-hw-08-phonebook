@@ -1,5 +1,6 @@
+import { Input,  Box } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
-import { Conteiner, Input } from "./Filter.styled";
+
 import { setFilter } from "redux/contacts/filterSlice";
 import { getContacts } from "redux/contacts/selectors";
 
@@ -19,7 +20,7 @@ const Filter = () => {
   return (<>
     {contacts.length > 0 ?
      (
-      <Conteiner>
+      <Box mb={30} mt={30}> 
       <p>Find contacts by name</p>
       <Input
         type="text"
@@ -27,7 +28,7 @@ const Filter = () => {
         placeholder="Enter name"
         onChange={onChange}
       />
-    </Conteiner>
+    </Box>
     ) : ( 
       <p>Please add your first contact</p>)
      }
