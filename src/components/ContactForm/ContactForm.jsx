@@ -1,13 +1,14 @@
 
 import React from 'react';
 import { ButtonAdd, Conteiner, Form, Input } from './ContactForm.styled';
-import { getContacts } from 'redux/selectors';
+import { getContacts } from 'redux/contacts/selectors';
 import {  useSelector, useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
+import { createContacts } from 'redux/contacts/operations';
 
-import { createContacts } from 'service/getApi';
 
-export const ContactForm = () => {
+
+const ContactForm = () => {
 
 const dispatch = useDispatch()
   const contacts = useSelector(getContacts);
@@ -17,7 +18,7 @@ const dispatch = useDispatch()
     const form = event.target;
     const name = form.name.value;
     const number = form.number.value;
-    const contact = { name: name, phone:number };
+    const contact = { name: name, number:number };
 
     if (contacts?.find(contact => contact.name === name)) {
       Notiflix.Notify.failure(`${name} is already in your contacts`);
@@ -60,3 +61,5 @@ const dispatch = useDispatch()
     </Conteiner>
   );
 };
+
+export default ContactForm;

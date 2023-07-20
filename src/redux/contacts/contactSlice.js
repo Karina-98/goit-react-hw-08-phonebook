@@ -1,7 +1,7 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import Notiflix from 'notiflix';
 
-import { createContacts, deleteContacts, getAllContacts } from 'service/getApi';
+import { createContacts, deleteContacts, getAllContacts } from './operations';
 // import { handelFulfilledCreate, handelFulfilledDel, handelFulfilledGet, handelPending, handelRejected } from './funktionSliceContacts';
 
 

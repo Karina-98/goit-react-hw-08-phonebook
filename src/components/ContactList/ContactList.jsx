@@ -1,15 +1,16 @@
 import {  useSelector, useDispatch } from "react-redux";
 import { ButtonDelete, ContactItem, List } from "./ContactList.styled";
-import { getContacts, getFilter } from "redux/selectors";
-import {deleteContacts} from 'service/getApi'
+import { getContacts, getFilter } from "redux/contacts/selectors";
+
 
 import { Loader } from "components/Loader/Loader";
+import { deleteContacts } from "redux/contacts/operations";
 
 
 
 
 
-export const ContactList = () => {
+const ContactList = () => {
   const {  error, isLoading} = useSelector(state=>state.contacts.contacts);
  const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
@@ -36,3 +37,5 @@ const filtredContacts = contacts?.filter(contact =>
     </>
   );
 };
+
+export default ContactList;
